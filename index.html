@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>بلاك تايجر للخدمات المنزلية | تحميل التطبيق الرسمي</title>
 
     <meta property="og:type" content="website">
@@ -11,13 +10,6 @@
     <meta property="og:title" content="بلاك تايجر للخدمات المنزلية | تحميل التطبيق">
     <meta property="og:description" content="تطبيق بلاك تايجر للخدمات المنزلية: المنصة الرائدة في مصر لتوفير عمالة النظافة، الطباخين، البيبي سيتر، وجليسات المسنين.">
     <meta property="og:image" content="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <meta property="og:image:secure_url" content="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Black Tiger">
-
-    <meta name="application-name" content="بلاك تايجر للخدمات المنزلية">
     <meta name="description" content="تطبيق بلاك تايجر للخدمات المنزلية: المنصة الرائدة في مصر لتوفير عمالة النظافة، الطباخين، البيبي سيتر، وجليسات المسنين. اطلب خدمتك الآن.">
 
     <script type="application/ld+json">
@@ -27,12 +19,9 @@
       "name": "بلاك تايجر للخدمات المنزلية",
       "operatingSystem": "ANDROID",
       "applicationCategory": "BusinessApplication",
-      "description": "بلاك تايجر هي الشركة الرسمية والرائدة في مصر لتقديم الخدمات المنزلية. اطلب خدمتك الآن عبر تطبيقنا الرسمي على GitHub.",
+      "description": "بلاك تايجر هي الشركة الرسمية والرائدة في مصر لتقديم الخدمات المنزلية.",
       "url": "https://blacktiger-cmd.github.io/BlackTiger-App/",
-      "author": {
-        "@type": "Organization",
-        "name": "بلاك تايجر مصر"
-      }
+      "author": { "@type": "Organization", "name": "بلاك تايجر مصر" }
     }
     </script>
 
@@ -42,29 +31,33 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Cairo', sans-serif; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #fff; margin: 0; overflow-x: hidden; }
-        .container { width: 90%; max-width: 400px; padding: 20px; text-align: center; }
-        .tiger-frame { width: 100%; height: 250px; border-radius: 30px; overflow: hidden; margin-bottom: 25px; border: 2px solid #ff8c00; box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2); background: #111; }
+        .container { width: 90%; max-width: 400px; padding: 20px; text-align: center; display: flex; flex-direction: column; } /* flex-direction تضمن الترتيب من فوق لتحت */
+        
+        .tiger-frame { width: 100%; height: 250px; border-radius: 30px; overflow: hidden; margin-bottom: 25px; border: 2px solid #ff8c00; box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2); background: #111; order: 1; }
         .tiger-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        h1 { font-size: 36px; color: #ff8c00; font-weight: 900; margin-bottom: 5px; }
-        .subtitle { color: #888; font-size: 17px; margin-bottom: 35px; font-weight: 700; }
         
-        .btn { background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%); color: #fff; font-size: 22px; font-weight: 900; padding: 20px; border-radius: 20px; display: block; border: none; width: 100%; cursor: pointer; box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4); margin-bottom: 15px; text-decoration: none; }
+        h1 { font-size: 36px; color: #ff8c00; font-weight: 900; margin-bottom: 5px; order: 2; }
+        .subtitle { color: #888; font-size: 17px; margin-bottom: 35px; font-weight: 700; order: 3; }
         
-        .btn-video { background: transparent; color: #ff8c00; border: 2px solid #ff8c00; font-size: 18px; padding: 15px; margin-bottom: 10px; display: block; text-decoration: none; border-radius: 20px; font-weight: bold; }
-        
-        .btn-reviews { background: #1a1a1a; color: #ff8c00; border: 1px solid #ff8c00; font-size: 16px; padding: 12px; box-shadow: none; margin-bottom: 25px; width: 100%; border-radius: 20px; cursor: pointer; }
-
-        #loading-section { display: none; margin-bottom: 25px; }
+        #loading-section { display: none; margin-bottom: 25px; order: 4; }
         .progress-bg { width: 100%; background: #222; height: 14px; border-radius: 20px; overflow: hidden; border: 1px solid #333; }
         .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #ff8c00, #ff4500); transition: width 0.3s ease; }
         
+        .btn { background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%); color: #fff; font-size: 22px; font-weight: 900; padding: 20px; border-radius: 20px; display: block; border: none; width: 100%; cursor: pointer; box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4); margin-bottom: 15px; text-decoration: none; order: 5; }
+        
+        /* زرار الفيديو - ترتيب رقم 6 */
+        .btn-video { background: transparent; color: #ff8c00; border: 2px solid #ff8c00; font-size: 18px; padding: 15px; margin-bottom: 10px; display: block; text-decoration: none; border-radius: 20px; font-weight: bold; order: 6; }
+        
+        /* زرار الآراء - ترتيب رقم 7 (تحت الفيديو) */
+        .btn-reviews { background: #1a1a1a; color: #ff8c00; border: 1px solid #ff8c00; font-size: 16px; padding: 12px; box-shadow: none; margin-bottom: 25px; width: 100%; border-radius: 20px; cursor: pointer; order: 7; }
+
         #reviews-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 1000; padding: 20px; overflow-y: auto; text-align: right; }
         .review-card { background: #111; padding: 15px; border-radius: 15px; margin-bottom: 12px; border-right: 4px solid #ff8c00; }
         .review-card h4 { color: #ff8c00; font-size: 16px; margin-bottom: 5px; }
         .review-card p { color: #ccc; font-size: 14px; }
 
-        .safety-note { margin-top: 25px; font-size: 14px; color: #aaa; background: rgba(255, 140, 0, 0.05); padding: 15px; border-radius: 15px; border: 1px solid #222; }
-        .footer { margin-top: 40px; color: #333; font-size: 12px; font-weight: bold; }
+        .safety-note { margin-top: 25px; font-size: 14px; color: #aaa; background: rgba(255, 140, 0, 0.05); padding: 15px; border-radius: 15px; border: 1px solid #222; order: 8; }
+        .footer { margin-top: 40px; color: #333; font-size: 12px; font-weight: bold; order: 9; }
     </style>
 </head>
 <body>
@@ -74,7 +67,7 @@
         <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black Tiger">
     </div>
     <h1>BLACK TIGER</h1>
-    <p class="subtitle"> أهلاً بك في تطبيق بلاك تايجر للخدمات المنزليه التطبيق الأقوى فى السوق المصريه </p>
+    <p class="subtitle"> أهلاً بك في تطبيق بلاك تايجر للخدمات المنزليه </p>
 
     <div id="loading-section">
         <div class="progress-bg"><div id="bar" class="progress-bar"></div></div>
@@ -83,16 +76,15 @@
     
     <button id="main-btn" class="btn" onclick="startUpdate()">تحميل الآن</button>
 
-    <a href="https://youtube.com/shorts/jveSOwc1v0Y?feature=share" target="_blank" rel="noopener noreferrer" id="video-btn" class="btn-video">
+    <a href="https://youtube.com/shorts/jveSOwc1v0Y?feature=share" target="_blank" rel="noopener noreferrer" id="v-btn" class="btn-video">
         📺 شرح طريقة التحميل (فيديو)
     </a>
 
-    <button id="rev-btn" class="btn-reviews" onclick="showReviews()">آراء أعضاء بلاك تايجر ⭐</button>
+    <button id="r-btn" class="btn-reviews" onclick="showReviews()">آراء أعضاء بلاك تايجر ⭐</button>
 
     <div class="safety-note">
-        <span>ملاحظة أمان:</span> تطبيقنا آمن تماماً، التحذير الذي قد يظهر أثناء التثبيت هو إجراء روتيني من نظام الأندرويد. يمكنك إتمام التثبيت بكل طمأنينة.
+        <span>ملاحظة أمان:</span> تطبيقنا آمن تماماً، والتحذير هو إجراء روتيني.
     </div>
-    
     <div class="footer">OFFICIAL BLACK TIGER © 2026</div>
 </div>
 
@@ -130,11 +122,10 @@
 <script>
     function showReviews() { document.getElementById('reviews-modal').style.display = 'block'; }
     function hideReviews() { document.getElementById('reviews-modal').style.display = 'none'; }
-    
     function startUpdate() {
         document.getElementById('main-btn').style.display = 'none';
-        document.getElementById('rev-btn').style.display = 'none';
-        document.getElementById('video-btn').style.display = 'none';
+        document.getElementById('r-btn').style.display = 'none';
+        document.getElementById('v-btn').style.display = 'none';
         document.getElementById('loading-section').style.display = 'block';
         let p = 0;
         let t = setInterval(() => {
@@ -149,6 +140,6 @@
         }, 150);
     }
 </script>
-
 </body>
 </html>
+
